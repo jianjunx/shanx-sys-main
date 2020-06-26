@@ -1,0 +1,15 @@
+[
+  {
+    "name": "微服务管理",
+    "type": "menu",
+    "children": [
+      {
+        "name": "Vue app",
+        "host": "//localhost:8081",
+        "type": "app",
+        "icon": "menu",
+        "path": "/vueapp"
+      }
+    ]
+  }
+]

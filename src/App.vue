@@ -1,29 +1,69 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
-  </div>
+  <el-container class="main-container">
+    <el-header class="white main-header">Header</el-header>
+    <el-container>
+      <el-aside
+        class="main-aside"
+        :style="{ width: showAside ? '200px' : '60px' }"
+        ><menu-tree :menuList="menuList"></menu-tree
+      ></el-aside>
+      <el-main>
+        <div id="microAppsContainer"></div>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import MenuTree, { IMenuItem } from './components/MenuTree.vue';
 
 @Component({
   components: {
-    HelloWorld,
+    MenuTree,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  private showAside: boolean = true;
+  private menuList: IMenuItem[] = [
+    {
+      name: '系统管理',
+      path: '1',
+      children: [
+        {
+          name: '用户管理',
+          path: '1-1',
+        },
+        {
+          name: '功能管理',
+          path: '1-2',
+        },
+      ],
+    },
+  ];
+
+  private toggleAside() {
+    this.showAside = !this.showAside;
+  }
+}
 </script>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.main {
+  &-container {
+    height: 100%;
+  }
+  &-header {
+    margin-bottom: 8px;
+    box-shadow: 0 0 2px #dcdfe6;
+    background-color: #fff;
+  }
+  &-aside {
+    transition: width 0.1s;
+    margin-left: 8px;
+    margin-bottom: 8px;
+    box-shadow: 0 0 2px #dcdfe6;
+    background-color: #fff;
+  }
 }
 </style>
