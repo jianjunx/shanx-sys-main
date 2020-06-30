@@ -16,12 +16,12 @@ import { IAppList } from "../api/common";
 })
 export default class MenuTree extends Vue {
   name: string = "MenuTree";
+
   @Prop({ default: () => [] }) menuList!: IMenuItem[];
 
-  private selectHandler(index: string) {
-    console.log("select", index);
-    const { href } = location;
-    location.pathname = index;
+  private selectHandler(path: string) {
+    if (this.$route.path === path) return;
+    this.$router.push(path);
   }
 }
 
