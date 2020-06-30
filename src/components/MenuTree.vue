@@ -5,10 +5,9 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'vue-property-decorator';
-import MenuItem from './MenuItem.vue';
-import { eventHub } from '../utils/event';
-import { IAppList } from '../api/common';
+import { Component, Vue, Prop } from "vue-property-decorator";
+import MenuItem from "./MenuItem.vue";
+import { IAppList } from "../api/common";
 
 @Component({
   components: {
@@ -16,23 +15,17 @@ import { IAppList } from '../api/common';
   },
 })
 export default class MenuTree extends Vue {
-  name: string = 'MenuTree';
+  name: string = "MenuTree";
   @Prop({ default: () => [] }) menuList!: IMenuItem[];
 
   private selectHandler(index: string) {
-    console.log('select', index);
+    console.log("select", index);
+    const { href } = location;
+    location.pathname = index;
   }
-  private created() {
-    eventHub.$on('menu-list', this.getMenuList);
-  }
-  private getMenuList(list: IAppList[]) {}
 }
 
-export interface IMenuItem {
-  name: string;
-  path: string;
-  children?: IMenuItem[];
-}
+export interface IMenuItem extends IAppList {}
 </script>
 
 <style></style>

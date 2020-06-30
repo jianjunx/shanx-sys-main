@@ -15,8 +15,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import MenuTree, { IMenuItem } from './components/MenuTree.vue';
+import { Component, Vue } from "vue-property-decorator";
+import MenuTree, { IMenuItem } from "./components/MenuTree.vue";
+import { eventHub } from "./utils/event";
+import { IAppList } from "./api/common";
 
 @Component({
   components: {
@@ -27,23 +29,25 @@ export default class App extends Vue {
   private showAside: boolean = true;
   private menuList: IMenuItem[] = [
     {
-      name: '系统管理',
-      path: '1',
+      name: "系统管理",
+      path: "1",
       children: [
         {
-          name: '用户管理',
-          path: '1-1',
+          name: "用户管理",
+          path: "1-1",
         },
         {
-          name: '功能管理',
-          path: '1-2',
+          name: "功能管理",
+          path: "1-2",
         },
       ],
     },
   ];
-
-  private toggleAside() {
-    this.showAside = !this.showAside;
+  private async created() {
+    eventHub.$on("menu-list", this.getMenuList);
+  }
+  private getMenuList(list: IAppList[]) {
+    this.menuList = list;
   }
 }
 </script>

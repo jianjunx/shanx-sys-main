@@ -1,3 +1,5 @@
+@import "./element-variables.scss";
+
 html,
 body {
   height: 100%;
@@ -5,5 +7,5 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F2F6FC;
+  background-color: #f2f6fc;
 }

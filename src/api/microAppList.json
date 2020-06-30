@@ -8,7 +8,7 @@
         "host": "//localhost:8081",
         "type": "app",
         "icon": "menu",
-        "path": "/vueapp"
+        "path": "/home"
       }
     ]
   }

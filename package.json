@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "serverless": "sls --debug"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -23,6 +24,9 @@
     "babel-plugin-component": "^1.1.1",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "serverless": "^1.74.0",
     "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
   }
