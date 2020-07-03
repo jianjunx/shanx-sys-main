@@ -1,16 +1,18 @@
 <template>
   <el-container class="main-container">
-    <el-header class="white main-header">Header</el-header>
-    <el-container>
+    <el-header style="height: 50px;" class="main-header">Header</el-header>
+    <el-container style="height: calc(100% - 70px);">
       <el-aside
         class="main-aside"
         :style="{ width: showAside ? '200px' : '60px' }"
         ><menu-tree :menuList="menuList"></menu-tree
       ></el-aside>
-      <el-main>
-        <tag-router></tag-router>
-        <div id="microAppsContainer"></div>
-      </el-main>
+      <div class="main-viewport">
+        <tag-router class="main-tagrouter"></tag-router>
+        <el-main>
+          <div id="microAppsContainer"></div>
+        </el-main>
+      </div>
     </el-container>
   </el-container>
 </template>
@@ -55,7 +57,7 @@ export default class App extends Vue {
 }
 </script>
 
-<style lang="less">
+<style lang="scss" scoped>
 .main {
   &-container {
     height: 100%;
@@ -64,6 +66,7 @@ export default class App extends Vue {
     margin-bottom: 8px;
     box-shadow: 0 0 2px #dcdfe6;
     background-color: #fff;
+    height: 50px;
   }
   &-aside {
     transition: width 0.1s;
@@ -72,5 +75,24 @@ export default class App extends Vue {
     box-shadow: 0 0 2px #dcdfe6;
     background-color: #fff;
   }
+  &-viewport {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 0 6px 6px 6px;
+
+    /deep/ .el-main {
+      height: calc(100% - 44px);
+      overflow-y: auto;
+      padding: 0;
+      background: #fff;
+      margin-top: 10px;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+  }
+}
+#microAppsContainer {
+  height: 100%;
 }
 </style>

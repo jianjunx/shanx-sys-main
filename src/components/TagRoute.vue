@@ -64,14 +64,13 @@ export default {
       path: this.$route.path,
       title: this.$route.meta.title,
     });
-    debugger
   },
 };
 </script>
 <style lang="scss" scoped>
 @import "../styles/variables.scss";
 .nav-bar {
-  height: 38px;
+  height: 30px;
   width: 100%;
   z-index: 8;
   background: #fff;
