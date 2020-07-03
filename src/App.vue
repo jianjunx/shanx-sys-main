@@ -8,6 +8,7 @@
         ><menu-tree :menuList="menuList"></menu-tree
       ></el-aside>
       <el-main>
+        <tag-router></tag-router>
         <div id="microAppsContainer"></div>
       </el-main>
     </el-container>
@@ -19,10 +20,12 @@ import { Component, Vue } from "vue-property-decorator";
 import MenuTree, { IMenuItem } from "./components/MenuTree.vue";
 import { eventHub } from "./utils/event";
 import { IAppList } from "./api/common";
+import TagRouter from "@/components/TagRoute.vue";
 
 @Component({
   components: {
     MenuTree,
+    TagRouter,
   },
 })
 export default class App extends Vue {
