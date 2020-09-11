@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+on: push
+name: Publish Website over FTPS
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.1.0
+      with:
+        fetch-depth: 2
+
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      with:
+        ftp-server: ftp://vhost140.cloudvhost.top:21/WEB
+        ftp-username: webmaster@HA637612
+        ftp-password: ${{ secrets.FTPS_PASSWORD }}
+        git-ftp-args: --insecure # if your certificate is setup correctly this can be removed
