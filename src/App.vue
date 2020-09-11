@@ -32,6 +32,7 @@ import TagRouter from "@/components/TagRoute.vue";
 })
 export default class App extends Vue {
   private showAside: boolean = true;
+  //
   private menuList: IMenuItem[] = [
     {
       name: "系统管理",
