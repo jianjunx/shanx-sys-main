@@ -29,5 +29,5 @@ jobs:
       with:
         ftp-server: ftp://vhost140.cloudvhost.top:21/WEB
         ftp-username: webmaster@HA637612
-        ftp-password: ${{ secrets.FTP_PASSWORD }}
+        ftp-password: ${{ secrets.FTPS_PASSWORD }}
         local-dir: dist # This folder is NOT going to upload by default unless you add it to .git-ftp-include
